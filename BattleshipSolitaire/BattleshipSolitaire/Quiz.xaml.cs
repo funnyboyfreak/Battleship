@@ -28,13 +28,11 @@ namespace BattleshipSolitaire
             CreatePlayGround(settings.Row, settings.Column);
         }
 
-        //egstra 2 parameter mitge demit wenn den s config file dezue chund
         public void CreatePlayGround(int anzRows, int anzColumns)
         {
             int counter = 0;
             Button btn;
 
-            //Vlt gfindisch hie no en schöni lösig zum d rows und columns erstelle
             for (int i = 0; i < anzRows; i++)
             {
                 this.PlayGroundGrid.ColumnDefinitions.Add(new ColumnDefinition());
