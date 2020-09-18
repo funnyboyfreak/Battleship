@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Git\M326\BattleshipSolitaire\BattleshipSolitaire\obj\Debug\
+C:\Users\savastaa\source\repos\Battleship\BattleshipSolitaire\BattleshipSolitaire\obj\Debug\
 BattleshipSolitaire
 none
 false
 DEBUG;TRACE
-C:\Git\M326\BattleshipSolitaire\BattleshipSolitaire\App.xaml
-11151548125
+C:\Users\savastaa\source\repos\Battleship\BattleshipSolitaire\BattleshipSolitaire\App.xaml
+3169011373
 
-61522651010
-13152784993
-MainWindow.xaml;
+10768126026
+14434534373
+Config.xaml;MainWindow.xaml;Quiz.xaml;
 
 True
 

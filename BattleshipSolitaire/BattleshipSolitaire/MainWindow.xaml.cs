@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BattleshipSolitaire.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,24 @@ namespace BattleshipSolitaire
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static string[] ConfigArray = new string[6];
         public MainWindow()
         {
             InitializeComponent();
+            ConfigRepository.ReadFromFile();
+        }
+
+        private void Button_Click_Generate(object sender, RoutedEventArgs e)
+        {
+            Quiz quiz = new Quiz();
+            quiz.Show();
+        }
+
+        private void Button_Click_Config(object sender, RoutedEventArgs e)
+        {
+            Config config= new Config();
+            config.Show();
+            this.Visibility = Visibility.Hidden;
         }
     }
 }
