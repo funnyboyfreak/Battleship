@@ -7,33 +7,23 @@ using System.Threading.Tasks;
 
 namespace BattleshipSolitaire.Repository
 {
-    class ConfigRepository
+    public class ConfigRepository
     {
+        public static string[] ConfigArray = new string[6];
         public static void ReadFromFile()
         {
-            string file1 = "C:\\Temp\\config.txt";
-            if (!File.Exists(file1))
+            string configFile = "C:\\Temp\\config.txt";
+            if (File.Exists(configFile))
             {
-                using (StreamWriter writer = new StreamWriter("C:\\Temp\\config.txt"))
+                using (StreamReader reader = new StreamReader(configFile))
                 {
-                    writer.WriteLine("0");
-                    writer.WriteLine("0");
-                    writer.WriteLine("0");
-                    writer.WriteLine("0");
-                    writer.WriteLine("0");
-                    writer.WriteLine("0");
+                    ConfigArray[0] = reader.ReadLine();
+                    ConfigArray[1] = reader.ReadLine();
+                    ConfigArray[2] = reader.ReadLine();
+                    ConfigArray[3] = reader.ReadLine();
+                    ConfigArray[4] = reader.ReadLine();
+                    ConfigArray[5] = reader.ReadLine();
                 }
-            }
-
-
-            using (StreamReader reader = new StreamReader("C:\\Temp\\config.txt"))
-            {
-                MainWindow.ConfigArray[0] = reader.ReadLine();
-                MainWindow.ConfigArray[1] = reader.ReadLine();
-                MainWindow.ConfigArray[2] = reader.ReadLine();
-                MainWindow.ConfigArray[3] = reader.ReadLine();
-                MainWindow.ConfigArray[4] = reader.ReadLine();
-                MainWindow.ConfigArray[5] = reader.ReadLine();
             }
         }
     }

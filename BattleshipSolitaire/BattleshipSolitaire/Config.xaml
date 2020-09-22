@@ -6,29 +6,41 @@
         xmlns:local="clr-namespace:BattleshipSolitaire"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="Config" Height="450" Width="800">
-    <Grid Background="Orange">
-        <Label VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25" Margin="322,22,270,334" Height="63" Width="200">Configuration</Label>
-        <Label VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Margin="147,75,489,276" Height="68" Width="156">Anzahl Spalten:</Label>
-        <Label VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Margin="158,120,489,231" Height="68" Width="145">Anzahl Zeilen:</Label>
-        <Label VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Margin="106,170,489,174" Width="197" Height="63">Anzahl Schiffe 1-er:</Label>
-        <Label VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Margin="106,212,489,134" Width="197" Height="63">Anzahl Schiffe 2-er:</Label>
-        <Label VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Margin="106,254,489,94" Width="197" Height="61">Anzahl Schiffe 3-er:</Label>
-        <Label VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Margin="106,296,489,54" Width="197" Height="59">Anzahl Schiffe 4-er:</Label>
-        <Label VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Margin="314,177,448,207" Width="30" Height="35">1</Label>
-        <Label VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Margin="531,182,213,202" Width="48" Height="35">4</Label>
-        <Label VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Margin="314,222,448,162" Width="30" Height="35">1</Label>
-        <Label VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Margin="531,224,213,160" Width="48" Height="35">4</Label>
-        <Label VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Margin="314,262,448,122" Width="30" Height="35">1</Label>
-        <Label VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Margin="531,264,213,120" Width="48" Height="35">4</Label>
-        <Label VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Margin="314,303,448,81" Width="30" Height="35">1</Label>
-        <Label VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Margin="531,303,213,81" Width="48" Height="35">4</Label>
-        <ComboBox  Name="rowsCombo" HorizontalAlignment="Left" Margin="349,85,0,0" VerticalAlignment="Top" Width="173" Height="23"></ComboBox>
-        <ComboBox Name="columnsCombo" HorizontalAlignment="Left" Margin="349,127,0,0" VerticalAlignment="Top" Width="173" Height="24"/>
-        <Slider Minimum="1" Maximum="4" TickFrequency="1" Background="Black"  FontSize="20" TickPlacement="BottomRight" IsSnapToTickEnabled="True" x:Name="einerSlide" HorizontalAlignment="Left" Margin="349,180,0,0" VerticalAlignment="Top" Height="32" Width="173"/>
-        <Slider Minimum="1" Maximum="4" TickFrequency="1" Background="Black"  FontSize="20" TickPlacement="BottomRight" IsSnapToTickEnabled="True" x:Name="zweierSlide" HorizontalAlignment="Left" Margin="349,222,0,0" VerticalAlignment="Top" Height="32" Width="173"/>
-        <Slider Minimum="1" Maximum="4" TickFrequency="1" Background="Black"  FontSize="20" TickPlacement="BottomRight" IsSnapToTickEnabled="True" x:Name="dreierSlide" HorizontalAlignment="Left" Margin="349,264,0,0" VerticalAlignment="Top" Height="32" Width="173"/>
-        <Slider Minimum="1" Maximum="4" TickFrequency="1" Background="Black"  FontSize="20" TickPlacement="BottomRight" IsSnapToTickEnabled="True" x:Name="viererSlide" HorizontalAlignment="Left" Margin="349,306,0,0" VerticalAlignment="Top" Height="32" Width="173"/>
-        <Button Background="Green" FontSize="25" Click="Button_Click_Save" Margin="562,348,55,19">Save</Button>
+        Title="Config" Height="450" Width="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="0.1*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Center" FontSize="25"  Content="Configuration"/>
+        <Label Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Content="Anzahl Spalten:"/>
+        <Label Grid.Column="1" Grid.Row="2"  VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Content="Anzahl Zeilen:"/>
+        <Label Grid.Column="1" Grid.Row="3"  VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Content="Anzahl Schiffe 1-er:"/>
+        <Label Grid.Column="1" Grid.Row="4"  VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Content="Anzahl Schiffe 2-er:"/>
+        <Label Grid.Column="1" Grid.Row="5"  VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Content="Anzahl Schiffe 3-er:"/>
+        <Label Grid.Column="1" Grid.Row="6"  VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Content="Anzahl Schiffe 4-er:"/>
+
+        <ComboBox Grid.Column="3" Grid.Row="1" Name="rowComboBox" Margin="10,15,10,15"/>
+        <ComboBox Grid.Column="3" Grid.Row="2" Name="columnComboBox" Margin="10,15,10,15"/>
+        <Slider Grid.Column="3" Grid.Row="3" Margin="10,15,10,15" Minimum="1" Maximum="4" TickFrequency="1" FontSize="20" TickPlacement="BottomRight" IsSnapToTickEnabled="True" AutoToolTipPlacement="TopLeft" x:Name="einerSlide" />
+        <Slider Grid.Column="3" Grid.Row="4" Margin="10,15,10,15" Minimum="1" Maximum="4" TickFrequency="1" FontSize="20" TickPlacement="BottomRight" IsSnapToTickEnabled="True" AutoToolTipPlacement="TopLeft" x:Name="zweierSlide" />
+        <Slider Grid.Column="3" Grid.Row="5" Margin="10,15,10,15" Minimum="1" Maximum="4" TickFrequency="1" FontSize="20" TickPlacement="BottomRight" IsSnapToTickEnabled="True" AutoToolTipPlacement="TopLeft" x:Name="dreierSlide" />
+        <Slider Grid.Column="3" Grid.Row="6" Margin="10,15,10,15" Minimum="1" Maximum="4" TickFrequency="1" FontSize="20" TickPlacement="BottomRight" IsSnapToTickEnabled="True" AutoToolTipPlacement="TopLeft" x:Name="viererSlide" />
+        <Button Grid.Column="3" Grid.Row="7" Margin="30,10,30,10" FontSize="20" Click="SaveClick" Content="Save"/>
     </Grid>
 </Window>

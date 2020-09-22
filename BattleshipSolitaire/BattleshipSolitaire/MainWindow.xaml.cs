@@ -21,24 +21,23 @@ namespace BattleshipSolitaire
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static string[] ConfigArray = new string[6];
         public MainWindow()
         {
             InitializeComponent();
             ConfigRepository.ReadFromFile();
         }
 
-        private void Button_Click_Generate(object sender, RoutedEventArgs e)
+        private void GenerateQuiz_Click(object sender, RoutedEventArgs e)
         {
             Quiz quiz = new Quiz();
             quiz.Show();
         }
 
-        private void Button_Click_Config(object sender, RoutedEventArgs e)
+        private void OpenConfig_Click(object sender, RoutedEventArgs e)
         {
-            Config config= new Config();
+            Config config = new Config();
             config.Show();
-            this.Visibility = Visibility.Hidden;
+            this.Close();
         }
     }
 }

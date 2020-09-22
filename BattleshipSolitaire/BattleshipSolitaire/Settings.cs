@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace BattleshipSolitaire
 {
-    class Settings
+    public static class Settings
     {
-        public int Column { get; set; }
-        public int Row { get; set; }
-        public int Einer { get; set; }
-        public int Zweier { get; set; }
-        public int Dreier { get; set; }
-        public int Vierer { get; set; }
+        public static int Column { get; set; }
+        public static int Row { get; set; }
+        public static int Einer { get; set; }
+        public static int Zweier { get; set; }
+        public static int Dreier { get; set; }
+        public static int Vierer { get; set; }
 
     }
 }

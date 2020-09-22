@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BattleshipSolitaire.Repository;
 
 namespace BattleshipSolitaire
 {
@@ -22,10 +23,7 @@ namespace BattleshipSolitaire
         public Quiz()
         {
             InitializeComponent();
-            Settings settings = new Settings();
-            settings.Row = Convert.ToInt32(MainWindow.ConfigArray[0]);
-            settings.Column = Convert.ToInt32(MainWindow.ConfigArray[1]);
-            CreatePlayGround(settings.Row, settings.Column);
+            CreatePlayGround(Settings.Row, Settings.Column);
         }
 
         public void CreatePlayGround(int anzRows, int anzColumns)
@@ -49,8 +47,7 @@ namespace BattleshipSolitaire
                 {
                     counter++;
                     btn = new Button();
-                    //Button Hintergrundfarbe
-                    btn.Background = Brushes.LightBlue;
+                    btn.Background = Brushes.White;
                     btn.SetValue(Grid.ColumnProperty, column);
                     btn.SetValue(Grid.RowProperty, row);
                     //Nur zum luege öbs schön nach de reihe nummeriert chasch de counter den wieder lösche

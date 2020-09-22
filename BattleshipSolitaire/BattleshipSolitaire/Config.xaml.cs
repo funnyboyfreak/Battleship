@@ -12,9 +12,11 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BattleshipSolitaire.Repository;
 
 namespace BattleshipSolitaire
 {
+
     /// <summary>
     /// Interaction logic for Config.xaml
     /// </summary>
@@ -31,43 +33,30 @@ namespace BattleshipSolitaire
         {
             for (int i = 0; i <= 10; i++)
             {
-                rowsCombo.Items.Add(i);
-                columnsCombo.Items.Add(i);
+                this.rowComboBox.Items.Add(i);
+                this.columnComboBox.Items.Add(i);
             }
         }
 
         void FillContent()
         {
-            if (MainWindow.ConfigArray[0] == "0")
-            {
-                rowsCombo.SelectedIndex = 0;
-            }
-            else
-            {
-                rowsCombo.SelectedIndex = Convert.ToInt32(MainWindow.ConfigArray[0]);
-            }
+            this.rowComboBox.SelectedIndex = Convert.ToInt32(ConfigRepository.ConfigArray[0]);
+            this.columnComboBox.SelectedIndex = Convert.ToInt32(ConfigRepository.ConfigArray[1]);
 
-            if (MainWindow.ConfigArray[1] == "0")
-            {
-                columnsCombo.SelectedIndex = 0;
-            }
-            else
-            {
-                columnsCombo.SelectedIndex = Convert.ToInt32(MainWindow.ConfigArray[1]);
-            }
-
-            einerSlide.Value = Convert.ToInt32(MainWindow.ConfigArray[2]);
-            zweierSlide.Value = Convert.ToInt32(MainWindow.ConfigArray[3]);
-            dreierSlide.Value = Convert.ToInt32(MainWindow.ConfigArray[4]);
-            viererSlide.Value = Convert.ToInt32(MainWindow.ConfigArray[5]);
+            einerSlide.Value = Convert.ToInt32(ConfigRepository.ConfigArray[2]);
+            zweierSlide.Value = Convert.ToInt32(ConfigRepository.ConfigArray[3]);
+            dreierSlide.Value = Convert.ToInt32(ConfigRepository.ConfigArray[4]);
+            viererSlide.Value = Convert.ToInt32(ConfigRepository.ConfigArray[5]);
         }
 
-        private void Button_Click_Save(object sender, RoutedEventArgs e)
+        private void SaveClick(object sender, RoutedEventArgs e)
         {
             using (StreamWriter streamwriter = new StreamWriter("C:\\Temp\\config.txt", false))
             {
-                streamwriter.WriteLine(rowsCombo.SelectedValue);
-                streamwriter.WriteLine(columnsCombo.SelectedValue);
+                Settings.Column = 10;
+                Settings.Row = 5;
+                streamwriter.WriteLine(this.rowComboBox.SelectedValue);
+                streamwriter.WriteLine(this.columnComboBox.SelectedValue);
                 streamwriter.WriteLine(einerSlide.Value);
                 streamwriter.WriteLine(zweierSlide.Value);
                 streamwriter.WriteLine(dreierSlide.Value);
@@ -76,7 +65,7 @@ namespace BattleshipSolitaire
 
             MainWindow window = new MainWindow();
             window.Show();
-            this.Visibility = Visibility.Hidden;
+            this.Close();
         }
     }
 }
